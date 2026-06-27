@@ -18,6 +18,7 @@ export default function HabitTracker({ userId, onActivity }: HabitTrackerProps) 
   const [newTitle, setNewTitle] = useState("");
   const [loading, setLoading] = useState(true);
   const [isAdding, setIsAdding] = useState(false);
+  const [togglingIds, setTogglingIds] = useState<Record<string, boolean>>({});
 
   // Helper to get local date string YYYY-MM-DD
   const getLocalDateString = (d: Date = new Date()) => {
@@ -117,16 +118,28 @@ export default function HabitTracker({ userId, onActivity }: HabitTrackerProps) 
     }
   };
 
-  const handleCompleteToday = async (habit: Habit) => {
+  const handleToggleCompleteToday = async (habit: Habit) => {
+    if (!habit.id || togglingIds[habit.id]) return;
     if (onActivity) onActivity();
-    const todayStr = getLocalDateString();
-    if (habit.history.includes(todayStr)) return; // Already completed today
 
-    const updatedHistory = [...habit.history, todayStr];
+    const todayStr = getLocalDateString();
+    const isCompletedToday = habit.history.includes(todayStr);
+
+    setTogglingIds((prev) => ({ ...prev, [habit.id!]: true }));
+
+    let updatedHistory: string[];
+    if (isCompletedToday) {
+      // Undo today's completion
+      updatedHistory = habit.history.filter((date) => date !== todayStr);
+    } else {
+      // Complete today
+      updatedHistory = [...habit.history, todayStr];
+    }
+
     const updatedStreak = calculateStreak(updatedHistory);
 
     try {
-      const habitRef = doc(db, "habits", habit.id!);
+      const habitRef = doc(db, "habits", habit.id);
       await updateDoc(habitRef, {
         history: updatedHistory,
         streak: updatedStreak
@@ -138,7 +151,9 @@ export default function HabitTracker({ userId, onActivity }: HabitTrackerProps) 
         )
       );
     } catch (err) {
-      console.error("Error completing habit:", err);
+      console.error("Error toggling habit completion:", err);
+    } finally {
+      setTogglingIds((prev) => ({ ...prev, [habit.id!]: false }));
     }
   };
 
@@ -205,13 +220,15 @@ export default function HabitTracker({ userId, onActivity }: HabitTrackerProps) 
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <button
-                    onClick={() => handleCompleteToday(h)}
-                    disabled={isCompletedToday}
+                    onClick={() => handleToggleCompleteToday(h)}
+                    disabled={togglingIds[h.id!]}
                     className={`flex h-6 w-6 cursor-pointer items-center justify-center rounded-lg border transition-all duration-200 ${
                       isCompletedToday
                         ? "border-teal-600 bg-teal-600 text-white"
                         : "border-slate-300 hover:border-teal-500 hover:bg-teal-50 text-transparent"
-                    }`}
+                    } ${togglingIds[h.id!] ? "opacity-50 cursor-not-allowed" : ""}`}
+                    title={isCompletedToday ? "Undo completion for today" : "Mark as completed for today"}
+                    aria-label={isCompletedToday ? "Undo completion for today" : "Mark as completed for today"}
                   >
                     <Check className="h-4 w-4" />
                   </button>
