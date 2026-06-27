@@ -1,0 +1,47 @@
+{
+  "users": [
+    {
+      "username": "diagnostic_test_user_unique",
+      "passwordHash": "df3ad5cd6c7291f186d7e37b339886781b212708656600ead6f2f0dfd340e460",
+      "securityQuestion": "What is your favorite color?",
+      "securityAnswerHash": "ab0b89c6f13d6a15ca36488118179fa477e98c2449743f333e978b093abbc565",
+      "createdAt": "2026-06-27T18:24:19.969Z",
+      "id": "xdo5q3smz"
+    },
+    {
+      "username": "ronak",
+      "passwordHash": "dda82e54f6a7beb1fc5005d6861ec4701fc6c0ac9038d45a25bce04e07665163",
+      "securityQuestion": "What was the name of your first pet?",
+      "securityAnswerHash": "10ccd0357eca771ef96bfe50b96b0faa860b4a4fa152d2068d504f7a1c2612d3",
+      "createdAt": "2026-06-27T18:25:51.999Z",
+      "id": "58cqtob4m"
+    },
+    {
+      "username": "ronaks",
+      "passwordHash": "834e61f99d663f2432e31f03b5494fa48c5a2561552a63e4f6f8e36d6c656369",
+      "securityQuestion": "What city were you born in?",
+      "securityAnswerHash": "10ccd0357eca771ef96bfe50b96b0faa860b4a4fa152d2068d504f7a1c2612d3",
+      "createdAt": "2026-06-27T18:30:24.794Z",
+      "id": "xkgkvf4c3"
+    },
+    {
+      "username": "test_user_irvcrpa",
+      "passwordHash": "5ef4383b8e2e0fa1c8abc2b56cb77e57e5bd8ab27829b50f13a4a8b65a180875",
+      "securityQuestion": "What is your favorite color?",
+      "securityAnswerHash": "ab0b89c6f13d6a15ca36488118179fa477e98c2449743f333e978b093abbc565",
+      "createdAt": "2026-06-27T18:46:14.032Z",
+      "id": "56u2wxq02"
+    },
+    {
+      "username": "test_user_hbwz5",
+      "passwordHash": "5ef4383b8e2e0fa1c8abc2b56cb77e57e5bd8ab27829b50f13a4a8b65a180875",
+      "securityQuestion": "What is your favorite color?",
+      "securityAnswerHash": "ab0b89c6f13d6a15ca36488118179fa477e98c2449743f333e978b093abbc565",
+      "createdAt": "2026-06-27T18:48:51.774Z",
+      "id": "152fqbg0p"
+    }
+  ],
+  "tasks": [],
+  "habits": [],
+  "feedback": []
+}

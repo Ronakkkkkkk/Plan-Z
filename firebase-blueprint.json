@@ -1,0 +1,79 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User account profile",
+      "type": "object",
+      "properties": {
+        "username": { "type": "string" },
+        "passwordHash": { "type": "string" },
+        "securityQuestion": { "type": "string" },
+        "securityAnswerHash": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["username", "passwordHash", "securityQuestion", "securityAnswerHash", "createdAt"]
+    },
+    "Task": {
+      "title": "Task",
+      "description": "SaaS task entity",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "deadline": { "type": "string" },
+        "priority": { "type": "string", "enum": ["Low", "Medium", "High"] },
+        "effort": { "type": "string" },
+        "category": { "type": "string", "enum": ["General", "Work", "Education", "Health", "Finance", "Personal", "Other"] },
+        "customCategory": { "type": "string" },
+        "completion": { "type": "number" },
+        "status": { "type": "string" },
+        "plan": { "type": "object" },
+        "planZ": { "type": "object" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "title", "deadline", "priority", "effort", "category", "completion", "status", "createdAt"]
+    },
+    "Habit": {
+      "title": "Habit",
+      "description": "User habit tracking record",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "streak": { "type": "number" },
+        "history": { "type": "array" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "title", "streak", "history", "createdAt"]
+    },
+    "Feedback": {
+      "title": "Feedback",
+      "description": "App feedback",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "message": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "message", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "Users collection scoped by UID"
+    },
+    "/tasks/{taskId}": {
+      "schema": { "$ref": "#/entities/Task" },
+      "description": "Tasks collection scoped by authenticated UID"
+    },
+    "/habits/{habitId}": {
+      "schema": { "$ref": "#/entities/Habit" },
+      "description": "Habits collection scoped by authenticated UID"
+    },
+    "/feedback/{feedbackId}": {
+      "schema": { "$ref": "#/entities/Feedback" },
+      "description": "Feedback collection scoped by authenticated UID"
+    }
+  }
+}

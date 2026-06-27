@@ -1,0 +1,6 @@
+{
+  "name": "Plan-z",
+  "description": "Plan-z is a high-performance AI productivity dashboard featuring a multi-agent pipeline, dynamic planner, backup mitigation plans, and habit tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

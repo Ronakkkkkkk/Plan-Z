@@ -1,0 +1,6 @@
+{
+  "firestore": {
+    "database": "ai-studio-planz-f0310597-7e0a-4339-96c9-02612d992a1c",
+    "rules": "firestore.rules"
+  }
+}
