@@ -235,7 +235,9 @@ export default function HabitTracker({ userId, onActivity }: HabitTrackerProps) 
 
                 <button
                   onClick={(e) => handleDeleteHabit(h.id!, e)}
-                  className="hidden cursor-pointer p-1 text-slate-400 hover:text-rose-600 group-hover:block transition-all duration-200"
+                  className="flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-xl text-slate-400 hover:text-rose-600 hover:bg-rose-50/50 md:opacity-0 md:group-hover:opacity-100 transition-all duration-200"
+                  title="Delete habit"
+                  aria-label="Delete habit"
                 >
                   <Trash2 className="h-4 w-4" />
                 </button>
