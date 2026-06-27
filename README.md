@@ -8,7 +8,7 @@
 Built for [Vibe2Ship](https://blockseblock.com) — Coding Ninjas x Google for Developers
 Problem Statement 1: *The Last-Minute Life Saver*
 
-[Live App](https://plan-z-87224077387.us-west1.run.app) · [Project Description Doc](#)
+[Live App](https://plan-z-87224077387.us-west1.run.app)
 
 </div>
 
