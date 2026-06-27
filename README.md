@@ -61,8 +61,6 @@ GEMINI_API_KEY_3=optional_fallback_key
 3. Run the app:
    `npm run dev`
 
-View this app in AI Studio: https://ai.studio/apps/f0310597-7e0a-4339-96c9-02612d992a1c
-
 ## Known Limitations
 
 - Firestore rules currently allow backend-authenticated writes broadly rather than enforcing per-document rules via Firebase Auth; full per-user enforcement via an Admin SDK–based backend connection is planned as a post-submission hardening step.
