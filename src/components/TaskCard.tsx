@@ -19,6 +19,10 @@ export default function TaskCard({ task, onUpdateCompletion, onDeleteTask, onSta
   const [expanded, setExpanded] = useState(false);
   const [sliderValue, setSliderValue] = useState(task.completion);
 
+  React.useEffect(() => {
+    setSliderValue(task.completion);
+  }, [task.completion]);
+
   // Border and text styling based on status
   let borderStyle = "border-l-4 border-l-emerald-500";
   let statusBadgeStyle = "bg-emerald-50 text-emerald-700 border-emerald-100";

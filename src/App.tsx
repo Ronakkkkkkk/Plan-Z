@@ -653,10 +653,10 @@ export default function App() {
           </div>
         ) : (
           <div className="w-full max-w-md space-y-8">
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center text-center">
               <Branding size="lg" />
-              <p className="mt-2 text-sm text-slate-500 font-semibold uppercase tracking-wider">
-                Aesthetic Multi-Agent Workspace
+              <p className="mt-2 text-xs sm:text-sm text-slate-500 font-semibold uppercase tracking-wider">
+                Multi-Agent AI, Built to Beat Your Deadlines
               </p>
             </div>
 
